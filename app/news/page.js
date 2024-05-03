@@ -2,7 +2,7 @@
 //'use client'
 
 import NewsList from '@/components/newsList/news-list'
-import { getNews } from '@/services/news'
+import { getAllNews } from '@/lib/news'
 // import { useQuery } from '@tanstack/react-query'
 // import { getNews } from '@/services/news'
 
@@ -20,6 +20,8 @@ export default async function NewsPage() {
         throw new Error('Impossible to obtain news.')
     } */
 
+    /*
+    ------ Server side fetching ------------
     const response = await fetch('http://localhost:8080/news')
 
     if (!response.ok) {
@@ -27,6 +29,9 @@ export default async function NewsPage() {
     }
 
     const data = await response.json()
+    */
+
+    const data = await getAllNews()
 
     return (
         <div>
